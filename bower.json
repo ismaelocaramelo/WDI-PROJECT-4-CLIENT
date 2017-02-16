@@ -1,0 +1,20 @@
+{
+  "name": "wdi-project-4-client",
+  "description": "App",
+  "main": "index.js",
+  "authors": [
+    "Ismael Bakkali <ismaelbacha@hotmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8"
+  }
+}
