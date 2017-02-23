@@ -1,0 +1,16 @@
+<div>
+  <form  ng-submit="GroupNew.createGroup()">
+    <h4>Create a Group</h4>
+    <div class="input-field col s12">
+      <input placeholder="Name" class="validate" ng-model="GroupNew.group.name">
+    </div>
+    <div class="input-field col s12">
+      <input id="protected" type="checkbox" class="validate" ng-model="GroupNew.group.protected">
+      <label for="protected">Private Group</label>
+    </div>
+    <br><br>
+    <div>
+      <input type="submit" class="waves-effect waves-light btn" value="Submit">
+    </div>
+  </form>
+</div>

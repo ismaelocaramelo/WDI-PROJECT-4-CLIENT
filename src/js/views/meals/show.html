@@ -1,0 +1,32 @@
+<p>{{MealShow.meal.name}}</p>
+<p><strong>Price per person:</strong> {{MealShow.meal.price_person}}</p>
+<p><strong>Date:</strong> {{MealShow.meal.date}}</p>
+<p><strong>Category:</strong> {{MealShow.meal.category.title}}</p>
+
+<a class="modal-trigger waves-effect waves-light btn" ui-sref="orderNew({ id: MealShow.meal.id })">Request This Meal</a>
+
+<div ng-if="MealShow.meal.pending_requests.length && MealShow.meal.user.id === main.user.id">
+  <h2>You have {{MealShow.meal.pending_requests.length}} pending requests for this meal</h2>
+  <ul>
+    <li ng-repeat="request in MealShow.meal.pending_requests track by $index">
+      <h3>{{request.requester_details.first_name}} requested {{request.quantity}} servings.</h3>
+      <div class="input-field col s12">
+        <input type="submit" value="accept" class="waves-effect waves-light btn"  ng-click="MealShow.changeStatus(request, 'accepted')">
+        <input type="submit" value="reject" class="waves-effect waves-light btn" ng-click="MealShow.changeStatus(request, 'rejected')">
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div ng-if="MealShow.meal.accepted_requests.length && MealShow.meal.user.id === main.user.id">
+  <h2>You have {{MealShow.meal.accepted_requests.length}} accepted requests for this meal</h2>
+  <ul>
+    <li ng-repeat="request in MealShow.meal.accepted_requests track by $index">
+      <h3>{{request.requester_details.first_name}} requested {{request.quantity}} servings.</h3>
+      <div class="input-field col s12">
+        <!-- <input type="submit" value="accepted" class="waves-effect waves-light btn"  ng-click="MealShow.changeStatus(request, 'accepted')"> -->
+        <input type="submit" value="reject" class="waves-effect waves-light btn" ng-click="MealShow.changeStatus(request, 'rejected')">
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,13 @@
+<div class="row top">
+  <div class="col s12">
+    <div class="card profile" ng-repeat="user in userIndex.users">
+      <div class="card-content">
+        <h5><a ui-sref="userShow({ id: user.id })">{{user.first_name}} {{user.lastName}}</a></h5>
+        <ul>
+          <li>Email: {{user.email}}</li>
+          <li ng-repeat="own_groups in userIndex.users.own_groups">Own groups: {{own_groups}}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
