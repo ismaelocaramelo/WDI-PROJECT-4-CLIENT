@@ -1,16 +1,34 @@
-<div>
-  <form  ng-submit="GroupNew.createGroup()">
-    <h4>Create a Group</h4>
-    <div class="input-field col s12">
-      <input placeholder="Name" class="validate" ng-model="GroupNew.group.name">
+<div class="row top">
+  <form class="col s12 m8 offset-m2" ng-submit="GroupNew.createGroup()">
+    <h4>Create Group</h4>
+    <div class="row">
+      <div class="input-field col s12">
+        <input placeholder="Name" class="validate" ng-model="GroupNew.group.name">
+      </div>
     </div>
-    <div class="input-field col s12">
-      <input id="protected" type="checkbox" class="validate" ng-model="GroupNew.group.protected">
-      <label for="protected">Private Group</label>
+    <div class="row">
+      <div class="input-field col s12">
+        <input placeholder="Image" class="validate" ng-model="GroupNew.group.icon">
+      </div>
     </div>
-    <br><br>
-    <div>
-      <input type="submit" class="waves-effect waves-light btn" value="Submit">
+    <div class="row">
+      <div class="input-field col s12">
+        <!-- <input id="protected" type="checkbox" class="validate" ng-model="GroupNew.group.protected">
+        <label for="protected">Private Group</label> -->
+        <div class="row">
+          <div class="switch row">
+            <label>
+              Unprotected
+              <input ng-model="GroupNew.group.protected" type="checkbox">
+              <span class="lever"></span>
+              Protected
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" class="waves-effect waves-light btn col s12" value="Submit">
     </div>
   </form>
 </div>

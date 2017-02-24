@@ -1,14 +1,36 @@
+
+<h2>Available Meals</h2>
+
 <div class="row top">
-  <div class="col s12">
-    <div class="card profile" ng-repeat="meal in MealIndex.meals track by $index">
-      <div class="card-content">
-        <p><a ui-sref="mealShow({id: meal.id })">{{meal.name}}</a></p>
-        <p><strong>Price per person:</strong> {{meal.price_person}}</p>
-        <p><strong>Date:</strong> {{meal.date}}</p>
-        <p><strong>Category:</strong> {{meal.category.title}}</p>
-        <!-- <span>Tags: </span>{{meal.tags.title}}</h4> -->
-        <!-- <span ng-repeat = "meal in meal.ratings track by $index">Ratings: </span>{{ratings.evaluation}} -->
-      </div>
-    </div>
+  <ul>
+    <li ui-sref="mealShow({id: meal.id })" ng-repeat="meal in MealIndex.meals track by $index">
+      <div class="col l4 s6">
+        <div class="card">
+          <div class="card-image">
+            <img class="meal-index-img" src="{{ meal.image}}">
+            <span class="card-title">{{ meal.name }}</span>
+          </div>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
+
+
+
+
+
+  <!-- <div class="row top">
+  <div class="col s12">
+  <div class="card profile" ng-repeat="meal in MealIndex.meals track by $index">
+  <div class="card-content">
+  <p><a ui-sref="mealShow({id: meal.id })">{{meal.name}}</a></p>
+  <p><strong>Price per person:</strong> {{meal.price_person}}</p>
+  <p><strong>Date:</strong> {{meal.date}}</p>
+  <p><strong>Category:</strong> {{meal.category.title}}</p>
+  <span>Tags: </span>{{meal.tags.title}}</h4>
+  <span ng-repeat = "meal in meal.ratings track by $index">Ratings: </span>{{ratings.evaluation}}
 </div>
+</div>
+</div>
+</div> -->

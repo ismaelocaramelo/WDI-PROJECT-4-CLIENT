@@ -2,6 +2,8 @@
 <head>
   <meta charset="utf-8">
   <title>Angular Stack Setup</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet">
   <!-- inject:js -->
   <!-- endinject -->
   <!-- inject:css -->
@@ -12,11 +14,8 @@
   <header>
     <nav>
       <div class="nav-wrapper container">
-        <img class="brand-logo" ui-sref="home" ng-src="/images/Cook&&Share.png" width="184" height="64">
+        <img class="brand-logo" ui-sref="home" ng-src="/images/Cook&&Share.png" width="238" height="64">
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <!-- <li ng-if="main.user">
-          <a ui-sref="userIndex">Users</a>
-        </li> -->
         <li ng-if="main.user">
           <a ui-sref="userShow({id: main.user.id})">Welcome {{main.user.first_name}}</a>
         </li>
@@ -71,7 +70,7 @@
 <div id="registerModal" class="modal" ng-controller="RegisterCtrl as register">
   <h3>Register</h3>
     <div class="row">
-      <form class="modal-trigger col s12" ng-submit="register.register()">
+      <form class="modal-trigger col l12" ng-submit="register.register()">
         <div class="row">
           <div class="input-field col s6">
             <input placeholder="Placeholder" name="first_name" type="text" class="validate" ng-model="register.user.first_name">
@@ -80,6 +79,12 @@
           <div class="input-field col s6">
             <input type="text" name="last_name" class="validate" ng-model="register.user.last_name">
             <label for="last_name">Last Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" name="photo" class="validate" ng-model="register.user.photo">
+            <label for="photo">Profile Picture</label>
           </div>
         </div>
         <div class="row">
@@ -107,12 +112,26 @@
     </div>
 </div>
 
-
+<div id="orderModal" class="modal" ng-controller="OrderRequestNewCtrl as OrderRequestNew" class="row top">
+  <form class="col s12 m8 offset-m2" ng-submit="OrderRequestNew.create()">
+    <div class="row">
+      <br>
+      <div class="input-field col s12">
+        <input type="number" id="quantity" class="validate" ng-model="OrderRequestNew.order.quantity">
+        <label for="quantity">Quantity</label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <input type="submit" class="waves-effect waves-light btn col s12" value="Order">
+    </div>
+  </form>
+</div>
 
 <main class="container" ui-view></main>
 <script type="text/javascript">
   $('#loginModal').modal();
   $('#registerModal').modal();
+  $('#orderModal').modal();
 </script>
 </body>
 </html>

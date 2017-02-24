@@ -1,5 +1,16 @@
-<p>{{GroupShow.group.name}}</p>
+<p>{{GroupShow.groups.name}}</p>
 <h2>Members</h2>
-<ul>
-  <li ng-repeat="user in GroupShow.group.users track by $index">{{ user }}</li>
-</ul>
+<div class="row top">
+  <ul>
+    <li ui-sref="userShow({id: user.id })" ng-repeat="user in GroupShow.groups.users track by $index">
+      <div class="col l4 s6">
+        <div class="card">
+          <div class="card-image">
+            <img class="meal-index-img" src="{{ user.photo}}">
+            <span class="card-title">{{user.first_name}}, {{user.last_name}}</span>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -8,8 +8,6 @@ function GroupNewCtrl($http, API, $state, CurrentUserService, User, Group){
 
   vm.createGroup = () =>{
     vm.group.admin_id = CurrentUserService.currentUser.id;
-    vm.group.icon = 'No apply';
-    console.log('createGroup');
     Group
     .save(vm.group)
     .$promise

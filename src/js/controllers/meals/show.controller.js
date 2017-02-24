@@ -24,13 +24,11 @@ function MealShowCtrl(Meal, $stateParams, Order){
     .$promise
     .then(response =>{
       if (whichArray === 'pending'){
-        console.log('1', vm.meal.pending_requests);
         vm.meal.pending_requests.splice(vm.meal.pending_requests.indexOf(request), 1)
         if (newStatus === 'accepted'){
           vm.meal.accepted_requests.push(response);
         }
       } else if (whichArray === 'accepted') {
-        console.log('2', vm.meal.accepted_requests);
         vm.meal.accepted_requests.splice(vm.meal.accepted_requests.indexOf(request), 1)
       }
     });

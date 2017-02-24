@@ -1,32 +1,35 @@
-<p>{{MealShow.meal.name}}</p>
-<p><strong>Price per person:</strong> {{MealShow.meal.price_person}}</p>
-<p><strong>Date:</strong> {{MealShow.meal.date}}</p>
-<p><strong>Category:</strong> {{MealShow.meal.category.title}}</p>
-
-<a class="modal-trigger waves-effect waves-light btn" ui-sref="orderNew({ id: MealShow.meal.id })">Request This Meal</a>
-
-<div ng-if="MealShow.meal.pending_requests.length && MealShow.meal.user.id === main.user.id">
-  <h2>You have {{MealShow.meal.pending_requests.length}} pending requests for this meal</h2>
-  <ul>
-    <li ng-repeat="request in MealShow.meal.pending_requests track by $index">
-      <h3>{{request.requester_details.first_name}} requested {{request.quantity}} servings.</h3>
-      <div class="input-field col s12">
-        <input type="submit" value="accept" class="waves-effect waves-light btn"  ng-click="MealShow.changeStatus(request, 'accepted')">
-        <input type="submit" value="reject" class="waves-effect waves-light btn" ng-click="MealShow.changeStatus(request, 'rejected')">
+<div class="row">
+  <div class="col 12">
+    <div class="card large">
+      <div class="card-image">
+        <img src="{{MealShow.meal.image}}">
+        <span class="card-title">{{MealShow.meal.name}}</span>
       </div>
-    </li>
-  </ul>
+      <div class="card-content">
+        <p><strong>Price per person:</strong> £{{MealShow.meal.price_person}}</p>
+        <p><strong>Date:</strong> {{MealShow.meal.date |  date:"MM/dd/yyyy h:mma"}}</p>
+        <p><strong>User:</strong> <a href="#" ui-sref="userShow({ id: MealShow.meal.user.id })">{{MealShow.meal.user.first_name}}</a></p>
+      </div>
+      <div class="card-action" ng-controller="OrderRequestNewCtrl as OrderRequestNew">
+        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        <!-- <a class="modal-trigger waves-effect waves-light btn" href="#orderModal" ui-sref="orderNew({ id: MealShow.meal.id })">Request This Meal</a> -->
+        <a class="modal-trigger waves-effect waves-light btn" href="#orderModal" ng-click="OrderRequestNew.setMeal(MealShow.meal.id)">Request This Meal</a>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div ng-if="MealShow.meal.accepted_requests.length && MealShow.meal.user.id === main.user.id">
-  <h2>You have {{MealShow.meal.accepted_requests.length}} accepted requests for this meal</h2>
-  <ul>
-    <li ng-repeat="request in MealShow.meal.accepted_requests track by $index">
-      <h3>{{request.requester_details.first_name}} requested {{request.quantity}} servings.</h3>
-      <div class="input-field col s12">
-        <!-- <input type="submit" value="accepted" class="waves-effect waves-light btn"  ng-click="MealShow.changeStatus(request, 'accepted')"> -->
-        <input type="submit" value="reject" class="waves-effect waves-light btn" ng-click="MealShow.changeStatus(request, 'rejected')">
-      </div>
-    </li>
-  </ul>
+
+
+<div ng-if="MealShow.meal.user.id === main.user.id">
+   <h2>You have {{MealShow.meal.pending_requests.length}} pending requests for this meal</h2>
+   <ul>
+      <li ng-repeat="request in MealShow.meal.pending_requests track by $index">
+         <h3>{{request.requester_details.first_name}} requested {{request.quantity}} servings.</h3>
+         <div class="input-field col s12">
+            <input type="submit" value="accept" class="waves-effect waves-light btn"  ng-click="MealShow.changeStatus(request, 'accepted')">
+            <input type="submit" value="reject" class="waves-effect waves-light btn" ng-click="MealShow.changeStatus(request, 'rejected')">
+         </div>
+      </li>
+   </ul>
 </div>

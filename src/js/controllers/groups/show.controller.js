@@ -8,14 +8,9 @@ function GroupShowCtrl(Group, $stateParams, $http, API){
 
   vm.groups = Group.get($stateParams);
 
-  console.log($stateParams);
+  vm.setIconProtected = (group) => {
+    return (group.protected) ? 'lock_outline' : 'lock_open';
+  }
 
-  vm.joinGroup = (group) =>{
-    Group
-    .addMember({ group_id: group.id}, {})
-    .$promise
-    .then(response =>{
-      console.log('success', response);
-    });
-  };
+
 }

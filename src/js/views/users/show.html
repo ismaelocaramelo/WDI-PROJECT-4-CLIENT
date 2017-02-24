@@ -2,6 +2,7 @@
 <div class="span3 well col-sm-5 col-xs-12">
   <center>
     <h3>{{ userShow.user.first_name }} {{userShow.user.last_name}}</h3>
+    <img src="{{userShow.user.photo}}">
     <h4 class="media-heading"><small><span>Email: </span>{{userShow.user.email}}</small></h4>
     <div ng-show="userShow.user.own_groups.length">
       <h4 class="media-heading">My groups:</h4>

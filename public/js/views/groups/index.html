@@ -1,3 +1,29 @@
+
+<h2>Groups</h2>
+
+<div class="row top" ng-repeat="groups in groupIndex.groups track by $index">
+  <ul>
+    <li ng-controller="GroupShowCtrl as GroupShow" ui-sref="groupShow({ id: groups.id })" >
+      <div class="col l4 s6">
+        <div class="card">
+          <div class="card-image">
+            <img class="meal-index-img" src="{{ groups.icon}}">
+            <span class="card-title">Name: {{groups.name}}</span>
+          </div>
+          <div class="card-content" ng-show="!(groupIndex.isMember(groups, main.user))">
+            <a class="modal-trigger waves-effect waves-light btn" ng-click="groupIndex.joinGroup(groups)" ui-sref="groupShow({ id: groups.id })" ng-if="!(groupIndex.isMember(groups, main.user))">Join!</a>
+            <p style="font-size: 30px" class="large material-icons" >{{GroupShow.setIconProtected(groups)}}</p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<a ui-sref="groupNew" class="modal-trigger waves-effect waves-light btn">Create a group</a>
+
+
+
 <!-- <div class="row top">
   <div class="col s12">
     <div class="card profile" ng-repeat="groups in groupIndex.groups track by $index">
@@ -10,28 +36,8 @@
       </div>
     </div>
   </div>
-</div> -->
-
-<div class="row">
-  <div class="col s12 m7">
-    <div class="card">
-      <div class="card-image" ng-repeat="groups in groupIndex.groups track by $index">
-        <img src="groups.icon">
-        <span class="card-title">Group</span>
-      </div>
-      <div class="card-content">
-        <a ng-controller="GroupShowCtrl as GroupShow" ui-sref="groupShow({ id: groups.id })">Name: {{groups.name}}</a>
-        <ul>
-          <li>Protected: {{groups.protected}}</li>
-          <a class="modal-trigger waves-effect waves-light btn" ng-click="groupIndex.joinGroup(groups)" ui-sref="groupShow({ id: groups.id })" ng-if="!(groupIndex.isMember(groups, main.user))">Join This Group</a>
-        </ul>
-      </div>
-      <div class="card-action">
-        <a href="#">This is a link</a>
-      </div>
-    </div>
-  </div>
 </div>
 
 
-<a ui-sref="groupNew" class="modal-trigger waves-effect waves-light btn">Create a group</a>
+
+<a ui-sref="groupNew" class="modal-trigger waves-effect waves-light btn">Create a group</a> -->
