@@ -16,59 +16,59 @@
       <div class="nav-wrapper container">
         <img class="brand-logo" ui-sref="home" ng-src="/images/Cook&&Share.png" width="238" height="64">
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li ng-if="main.user">
-          <a ui-sref="userShow({id: main.user.id})">Welcome {{main.user.first_name}}</a>
-        </li>
-        <li ng-if="main.user">
-          <a ui-sref="mealIndex">Meals</a>
-        </li>
-        <li ng-if="main.user">
-          <a ui-sref="mealNew">Add Meal</a>
-        </li>
-        <li ng-if="main.user">
-          <a ui-sref="groupsIndex">Groups</a>
-        </li>
-        <li ng-if="!main.user">
-          <a href="#registerModal">Register</a>
-        </li>
-        <li ng-if="!main.user">
-          <a href="#loginModal">Login</a>
-        </li>
-        <li ng-if="main.user">
-          <a ng-click="main.logout()">Logout</a>
-        </li>
-      </ul>
+          <li ng-if="main.user">
+            <a ui-sref="userShow({id: main.user.id})">Welcome {{main.user.first_name}}</a>
+          </li>
+          <li ng-if="main.user">
+            <a ui-sref="mealIndex">Meals</a>
+          </li>
+          <li ng-if="main.user">
+            <a ui-sref="mealNew">Add Meal</a>
+          </li>
+          <li ng-if="main.user">
+            <a ui-sref="groupsIndex">Groups</a>
+          </li>
+          <li ng-if="!main.user">
+            <a href="#registerModal">Register</a>
+          </li>
+          <li ng-if="!main.user">
+            <a href="#loginModal">Login</a>
+          </li>
+          <li ng-if="main.user">
+            <a ng-click="main.logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal" ng-controller="LoginCtrl as login">
+    <h3>Login</h3>
+    <div class="row top">
+      <form class="col s12 m8 offset-m2" ng-submit="login.login()">
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="email" class="validate" ng-model="login.user.email">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="password" class="validate" ng-model="login.user.password">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" class="waves-effect waves-light btn col s12" value="Login">
+        </div>
+      </form>
     </div>
-  </nav>
-</header>
-
-<!-- Login Modal -->
-<div id="loginModal" class="modal" ng-controller="LoginCtrl as login">
-  <h3>Login</h3>
-  <div class="row top">
-    <form class="col s12 m8 offset-m2" ng-submit="login.login()">
-      <div class="row">
-        <div class="input-field col s12">
-          <input type="email" class="validate" ng-model="login.user.email">
-          <label for="email">Email</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input type="password" class="validate" ng-model="login.user.password">
-          <label for="password">Password</label>
-        </div>
-      </div>
-      <div class="row">
-        <input type="submit" class="waves-effect waves-light btn col s12" value="Login">
-      </div>
-    </form>
   </div>
-</div>
 
-<!-- Register Modal -->
-<div id="registerModal" class="modal" ng-controller="RegisterCtrl as register">
-  <h3>Register</h3>
+  <!-- Register Modal -->
+  <div id="registerModal" class="modal" ng-controller="RegisterCtrl as register">
+    <h3>Register</h3>
     <div class="row">
       <form class="modal-trigger col l12" ng-submit="register.register()">
         <div class="row">
@@ -110,28 +110,28 @@
         </div>
       </form>
     </div>
-</div>
+  </div>
 
-<div id="orderModal" class="modal" ng-controller="OrderRequestNewCtrl as OrderRequestNew" class="row top">
-  <form class="col s12 m8 offset-m2" ng-submit="OrderRequestNew.create()">
-    <div class="row">
-      <br>
-      <div class="input-field col s12">
-        <input type="number" id="quantity" class="validate" ng-model="OrderRequestNew.order.quantity">
-        <label for="quantity">Quantity</label>
+  <div id="orderModal" class="modal row top" ng-controller="OrderRequestNewCtrl as OrderRequestNew">
+    <form class="col s12 m8 offset-m2" ng-submit="OrderRequestNew.create()">
+      <div class="row">
+        <br>
+        <div class="input-field col s12">
+          <input type="number" id="quantity" class="validate" ng-model="OrderRequestNew.order.quantity">
+          <label for="quantity">Quantity</label>
+        </div>
       </div>
-    </div>
-    <div class="modal-footer">
-      <input type="submit" class="waves-effect waves-light btn col s12" value="Order">
-    </div>
-  </form>
-</div>
+      <div class="modal-footer">
+        <input type="submit" class="waves-effect waves-light btn col s12" value="Order">
+      </div>
+    </form>
+  </div>
 
-<main class="container" ui-view></main>
-<script type="text/javascript">
+  <main class="container" ui-view></main>
+  <script type="text/javascript">
   $('#loginModal').modal();
   $('#registerModal').modal();
   $('#orderModal').modal();
-</script>
+  </script>
 </body>
 </html>

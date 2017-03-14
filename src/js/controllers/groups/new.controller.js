@@ -12,7 +12,7 @@ function GroupNewCtrl($http, API, $state, CurrentUserService, User, Group){
     .save(vm.group)
     .$promise
     .then(response =>{
-      $state.go('groupsIndex')
+      $state.go('groupsIndex');
     });
   };
 }

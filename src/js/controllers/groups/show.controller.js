@@ -10,7 +10,7 @@ function GroupShowCtrl(Group, $stateParams, $http, API){
 
   vm.setIconProtected = (group) => {
     return (group.protected) ? 'lock_outline' : 'lock_open';
-  }
+  };
 
 
 }

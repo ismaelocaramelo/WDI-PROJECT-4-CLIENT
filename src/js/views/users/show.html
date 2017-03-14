@@ -1,41 +1,29 @@
 <div class="container">
-<div class="span3 well col-sm-5 col-xs-12">
-  <center>
-    <h3>{{ userShow.user.first_name }} {{userShow.user.last_name}}</h3>
-    <img src="{{userShow.user.photo}}">
-    <h4 class="media-heading"><small><span>Email: </span>{{userShow.user.email}}</small></h4>
-    <div ng-show="userShow.user.own_groups.length">
-      <h4 class="media-heading">My groups:</h4>
-      <ul>
-        <li ng-repeat="group in userShow.user.own_groups">
-          <h6><a ui-sref="groupShow({id: group.id})">{{group.name}}</a></h6>
-        </li>
-      </ul>
-    </div>
-    <div ng-show="userShow.user.meals.length">
-      <h4 class="media-heading">My meals:</h4>
-      <ul>
-        <li ng-repeat="meal in userShow.user.meals">
-          <h6><a ui-sref="mealShow({id: meal.id})">{{meal.name}}</a></h6>
-        </li>
-      </ul>
-    </div>
-
+  <div class="span3 well col-sm-5 col-xs-12">
     <center>
-      <!-- <button ng-if="usersShow.user.id === main.user.id" class="btn btn-primary" ui-sref="userEdit({id: main.user.id})">Edit</button> -->
-      <button ng-if="userShow.user.id === main.user.id" class="btn btn-warning" ng-click="userShow.delete(main.user)">Delete My Account</button>
-    </center>
-  </center>
-</div>
-<!-- <div class="span3 well col-sm-6 col-sm-offset-1 col-xs-12">
-  <div class="notificationsOnProfile">
-    <h4>Notifications:</h4>
-    <h6 class="mb-1 userShownotifications" ng-repeat="notification in userShow.user.notifications">
-      <p class="notificationsOnProfile" ui-sref="notificationsShow({id: notification._id})">
-        <span class="glyphicon glyphicon-circle-arrow-right"></span> {{ notification.title }} </p>
-      </h6>
-    </div>
-  </div>
-</div> -->
+      <h3>{{ userShow.user.first_name }} {{userShow.user.last_name}}</h3>
+      <img src="{{userShow.user.photo}}">
+      <h4 class="media-heading"><small><span>Email: </span>{{userShow.user.email}}</small></h4>
+      <div ng-show="userShow.user.own_groups.length">
+        <h4 class="media-heading">My groups:</h4>
+        <ul>
+          <li ng-repeat="group in userShow.user.own_groups">
+            <h6><a ui-sref="groupShow({id: group.id})">{{group.name}}</a></h6>
+          </li>
+        </ul>
+      </div>
+      <div ng-show="userShow.user.meals.length">
+        <h4 class="media-heading">My meals:</h4>
+        <ul>
+          <li ng-repeat="meal in userShow.user.meals">
+            <h6><a ui-sref="mealShow({id: meal.id})">{{meal.name}}</a></h6>
+          </li>
+        </ul>
+      </div>
 
-<!-- {{ userShow.user }} -->
+      <center>
+        <button ng-if="userShow.user.id === main.user.id" class="btn btn-warning" ng-click="userShow.delete(main.user)">Delete My Account</button>
+      </center>
+    </center>
+  </div>
+</div>

@@ -6,7 +6,7 @@ OrderRequestNewCtrl.$inject = ['Meal', '$stateParams', 'Order', '$state'];
 function OrderRequestNewCtrl(Meal, $stateParams, Order, $state){
   const vm = this;
 
-  console.log('LOADED')
+  console.log('LOADED');
 
   vm.create = () => {
     $('#orderModal').modal('close');
