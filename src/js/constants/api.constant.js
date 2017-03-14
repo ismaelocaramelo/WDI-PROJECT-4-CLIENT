@@ -1,3 +1,3 @@
 angular
   .module('Cook&&Share')
-  .constant('API', 'http://localhost:3000');
+  .constant('API', 'https://wdi-project-4-ismael-api.herokuapp.com/');
